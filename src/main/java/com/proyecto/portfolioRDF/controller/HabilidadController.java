@@ -1,7 +1,7 @@
 package com.proyecto.portfolioRDF.controller;
 
-import com.proyecto.portfolioRDF.entity.Experiencia;
-import com.proyecto.portfolioRDF.service.ExperienciaService;
+import com.proyecto.portfolioRDF.entity.Habilidad;
+import com.proyecto.portfolioRDF.service.HabilidadService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,40 +16,40 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("experiencia")
+@RequestMapping("habilidad")
 @CrossOrigin(origins = "http://localhost:4200")
-public class ExperienciaController {
-    
+public class HabilidadController {
+ 
     @Autowired
-    ExperienciaService experServ;
+    HabilidadService habilServ;
     
     @GetMapping("/lista")
     @ResponseBody
-    public List<Experiencia> getExperiencias(){
-        return experServ.getExperiencias();
+    public List<Habilidad> getHabilidades(){
+        return habilServ.getHabilidades();
     }
     
     @GetMapping("/ver/{id}")
     @ResponseBody
-    public Experiencia verExperiencia(@PathVariable int id){
-        return experServ.findExperiencia(id);
+    public Habilidad verHabilidad(@PathVariable int id){
+        return habilServ.findHabilidad(id);
     }
     
     @PostMapping("/crear")
-    public String agregarExperiencia(@RequestBody Experiencia exper){
-        experServ.saveExperiencia(exper);
-        return "La experiencia se agregó correctamente";
+    public String agregarHabilidad(@RequestBody Habilidad habil){
+        habilServ.saveHabilidad(habil);
+        return "La habilidad se agregó correctamente";
     }
     
     @DeleteMapping("/borrar/{id}")
-    public String borrarExperiencia(@PathVariable int id){
-        experServ.deleteExperiencia(id);
-        return "La experiencia se borró correctamente";
+    public String borrarHabilidad(@PathVariable int id){
+        habilServ.deleteHabilidad(id);
+        return "La habilidad se borró correctamente";
     }
     
     @PutMapping("/actualizar")
-    public String actualizarExperiencia(@RequestBody Experiencia exper){
-        experServ.saveExperiencia(exper);
-        return "La experiencia se actualizó correctamente";
+    public String actualizarHabilidad(@RequestBody Habilidad habil){
+        habilServ.saveHabilidad(habil);
+        return "La habilidad se actualizó correctamente";
     }
 }

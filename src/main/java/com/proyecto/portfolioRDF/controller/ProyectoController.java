@@ -1,7 +1,7 @@
 package com.proyecto.portfolioRDF.controller;
 
-import com.proyecto.portfolioRDF.entity.Experiencia;
-import com.proyecto.portfolioRDF.service.ExperienciaService;
+import com.proyecto.portfolioRDF.entity.Proyecto;
+import com.proyecto.portfolioRDF.service.ProyectoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,40 +16,40 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("experiencia")
+@RequestMapping("proyecto")
 @CrossOrigin(origins = "http://localhost:4200")
-public class ExperienciaController {
+public class ProyectoController {
     
     @Autowired
-    ExperienciaService experServ;
+    ProyectoService proyServ;
     
     @GetMapping("/lista")
     @ResponseBody
-    public List<Experiencia> getExperiencias(){
-        return experServ.getExperiencias();
+    public List<Proyecto> getProyectos(){
+        return proyServ.getProyectos();
     }
     
     @GetMapping("/ver/{id}")
     @ResponseBody
-    public Experiencia verExperiencia(@PathVariable int id){
-        return experServ.findExperiencia(id);
+    public Proyecto verProyecto(@PathVariable int id){
+        return proyServ.findProyecto(id);
     }
     
     @PostMapping("/crear")
-    public String agregarExperiencia(@RequestBody Experiencia exper){
-        experServ.saveExperiencia(exper);
-        return "La experiencia se agregó correctamente";
+    public String agregarProyecto(@RequestBody Proyecto proy){
+        proyServ.saveProyecto(proy);
+        return "El proyecto se agregó correctamente";
     }
     
     @DeleteMapping("/borrar/{id}")
-    public String borrarExperiencia(@PathVariable int id){
-        experServ.deleteExperiencia(id);
-        return "La experiencia se borró correctamente";
+    public String borrarProyecto(@PathVariable int id){
+        proyServ.deleteProyecto(id);
+        return "El proyecto se borró correctamente";
     }
     
     @PutMapping("/actualizar")
-    public String actualizarExperiencia(@RequestBody Experiencia exper){
-        experServ.saveExperiencia(exper);
-        return "La experiencia se actualizó correctamente";
-    }
+    public String actualizarProyecto(@RequestBody Proyecto proy){
+        proyServ.saveProyecto(proy);
+        return "El proyecto se actualizó correctamente";
+    }    
 }

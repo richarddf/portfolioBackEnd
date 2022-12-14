@@ -1,7 +1,7 @@
 package com.proyecto.portfolioRDF.controller;
 
-import com.proyecto.portfolioRDF.entity.Experiencia;
-import com.proyecto.portfolioRDF.service.ExperienciaService;
+import com.proyecto.portfolioRDF.entity.Red;
+import com.proyecto.portfolioRDF.service.RedService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,40 +16,40 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("experiencia")
+@RequestMapping("red")
 @CrossOrigin(origins = "http://localhost:4200")
-public class ExperienciaController {
+public class RedController {
     
     @Autowired
-    ExperienciaService experServ;
-    
+    RedService redServ;
+
     @GetMapping("/lista")
     @ResponseBody
-    public List<Experiencia> getExperiencias(){
-        return experServ.getExperiencias();
+    public List<Red> getRedes(){
+        return redServ.getRedes();
     }
     
     @GetMapping("/ver/{id}")
     @ResponseBody
-    public Experiencia verExperiencia(@PathVariable int id){
-        return experServ.findExperiencia(id);
+    public Red verRed(@PathVariable int id){
+        return redServ.findRed(id);
     }
     
     @PostMapping("/crear")
-    public String agregarExperiencia(@RequestBody Experiencia exper){
-        experServ.saveExperiencia(exper);
-        return "La experiencia se agregó correctamente";
+    public String agregarRed(@RequestBody Red red){
+        redServ.saveRed(red);
+        return "la red social se agregó correctamente";
     }
     
     @DeleteMapping("/borrar/{id}")
-    public String borrarExperiencia(@PathVariable int id){
-        experServ.deleteExperiencia(id);
-        return "La experiencia se borró correctamente";
+    public String borrarRed(@PathVariable int id){
+        redServ.deleteRed(id);
+        return "la red social se borró correctamente";
     }
     
     @PutMapping("/actualizar")
-    public String actualizarExperiencia(@RequestBody Experiencia exper){
-        experServ.saveExperiencia(exper);
-        return "La experiencia se actualizó correctamente";
+    public String actualizarRed(@RequestBody Red red){
+        redServ.saveRed(red);
+        return "la red social se actualizó correctamente";
     }
 }

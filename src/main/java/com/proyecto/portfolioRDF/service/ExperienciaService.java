@@ -12,7 +12,7 @@ public class ExperienciaService {
     @Autowired
     private ExperienciaRepository experRepository;
     
-    public List<Experiencia> getExperiencia() {
+    public List<Experiencia> getExperiencias() {
         List<Experiencia> listaExperiencias = experRepository.findAll();
         return listaExperiencias;
     }
