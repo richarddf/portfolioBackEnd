@@ -1,5 +1,6 @@
 package com.proyecto.portfolioRDF.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,7 +12,9 @@ public class Proyecto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(length=50)
     private String descripcion;
+    @Column(length=255)
     private String url_img_proyecto;
     private int idpersona;
 

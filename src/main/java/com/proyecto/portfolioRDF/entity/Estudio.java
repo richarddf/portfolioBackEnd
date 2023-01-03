@@ -1,10 +1,14 @@
 package com.proyecto.portfolioRDF.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import java.util.Date;
+
 
 @Entity
 public class Estudio {
@@ -12,10 +16,15 @@ public class Estudio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(length=100)
     private String institucion;
+    @Column(length=100)
     private String direccion;
+    @Column(length=50)
     private String titulo;
+    @Temporal(TemporalType.DATE)
     private Date fecha_inicio;
+    @Temporal(TemporalType.DATE)
     private Date fecha_fin;
     private int idpersona;
 

@@ -1,6 +1,6 @@
 package com.proyecto.portfolioRDF.entity;
 
-import jakarta.persistence.Lob;
+import jakarta.persistence.Column;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -12,20 +12,29 @@ public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(length=50)
     private String nombre;
+    @Column(length=50)
     private String titulo;
+    @Column(length=255)
     private String imagen_perfil;
-    @Lob
+    @Column(length=1000)
     private String descripcion;
+    @Column(length=50)
+    private String email;
+    @Column(length=20)
+    private String password;
 
     public Persona() {
     }
 
-    public Persona(String nombre, String titulo, String imagen_perfil, String descripcion) {
+    public Persona(String nombre, String titulo, String imagen_perfil, String descripcion, String email, String password) {
         this.nombre = nombre;
         this.titulo = titulo;
         this.imagen_perfil = imagen_perfil;
         this.descripcion = descripcion;
+        this.email = email;
+        this.password = password;
     }
 
     public int getId() {
@@ -68,5 +77,20 @@ public class Persona {
         this.descripcion = descripcion;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }    
     
 }

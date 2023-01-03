@@ -1,5 +1,6 @@
 package com.proyecto.portfolioRDF.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,9 +12,12 @@ public class Habilidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(length=25)
     private String tecnologia;
+    @Column(length=255)
     private String url_img_tecnologia;
     private int porcentaje;
+    @Column(length=40)
     private String descripcion;
     private int idpersona;
 
