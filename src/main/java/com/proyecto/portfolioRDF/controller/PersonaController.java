@@ -23,6 +23,12 @@ public class PersonaController {
     @Autowired
     PersonaService persoServ;
     
+    @PostMapping ("/autenticacion/login")
+    public Persona loginPersona (@RequestBody Persona pers) {
+        return persoServ.loginPersona(pers.getEmail(),pers.getPassword());
+    }
+    
+    /* Endpoint Persona */
     @GetMapping("/lista")
     @ResponseBody
     public List<Persona> getPersonas(){

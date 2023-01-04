@@ -30,5 +30,14 @@ public class PersonaService {
         Persona perso = persoRepository.findById(id).orElse(null);
         return perso;
     }
+    
+    public Persona loginPersona(String email, String password) {
+        List <Persona> personas = persoRepository.findByEmailAndPassword(email, password);
+        
+        if(!personas.isEmpty()){
+            return personas.get(0);                        
+        }
+        return null;
+    }
 
 }
